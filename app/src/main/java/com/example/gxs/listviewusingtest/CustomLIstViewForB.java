@@ -1,6 +1,7 @@
 package com.example.gxs.listviewusingtest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,14 +25,19 @@ public class CustomLIstViewForB extends Activity {
         setContentView(R.layout.custom_listview);
         lv1 = (ListView) findViewById(R.id.lv);
         lv1.setAdapter(adapter);
-
+        findViewById(R.id.SingularOrDoubles).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CustomLIstViewForB.this,CustomListView.class));
+            }
+        });
 
     }
     private BaseAdapter adapter = new BaseAdapter() {
 
         //private String[] data = new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
         private CustomListCellData[] data = new CustomListCellData[]{
-                new CustomListCellData("Monday","1-2计算机前沿@7教北220","3-5数据库@7教北408","6-8计组@7教中3022","",R.drawable.img1),
+                new CustomListCellData("Monday(双周)","1-2计算机前沿@7教北220","3-5数据库@7教北408","6-8计组@7教中3022","",R.drawable.img1),
                 new CustomListCellData("Tuesday","","3-4跨文化交际@3教110","6-8计算机图形学@12教316","10-11书法@12教414",R.drawable.img2),
                 new CustomListCellData("Wednesday","","3-5计组@6教北114","6-7大职@12教302","",R.drawable.img3),
                 new CustomListCellData("Thursday","1-2毛概@3教211","3-4体育@体育馆大厅","6-7现代经济@7教北222","",R.drawable.img4),
